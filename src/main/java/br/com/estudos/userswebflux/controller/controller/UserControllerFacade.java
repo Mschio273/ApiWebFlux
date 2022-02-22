@@ -3,7 +3,6 @@ package br.com.estudos.userswebflux.controller.controller;
 import br.com.estudos.userswebflux.controller.mapper.ControllerMapperResponse;
 import br.com.estudos.userswebflux.controller.model.UserControllerRequest;
 import br.com.estudos.userswebflux.controller.model.UserControllerResponse;
-import br.com.estudos.userswebflux.exception.NotFoundException;
 import br.com.estudos.userswebflux.service.model.UserServiceRequest;
 import br.com.estudos.userswebflux.service.service.UserServiceFacade;
 import lombok.AllArgsConstructor;
@@ -14,7 +13,6 @@ import reactor.core.publisher.Mono;
 import static br.com.estudos.userswebflux.controller.mapper.ControllerMapperRequest.toUserControllerRequest;
 import static br.com.estudos.userswebflux.controller.mapper.ControllerMapperRequestWithId.toUserControllerRequestWithId;
 
-//todo criar testes facade, controller, service
 @AllArgsConstructor
 @Component
 public class UserControllerFacade {

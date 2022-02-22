@@ -7,6 +7,7 @@ import br.com.estudos.userswebflux.service.model.UserServiceResponse;
 import br.com.estudos.userswebflux.service.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

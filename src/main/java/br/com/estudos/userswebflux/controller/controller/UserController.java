@@ -2,8 +2,10 @@ package br.com.estudos.userswebflux.controller.controller;
 
 import br.com.estudos.userswebflux.controller.model.UserControllerRequest;
 import br.com.estudos.userswebflux.controller.model.UserControllerResponse;
+import br.com.estudos.userswebflux.service.model.Address;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -54,5 +56,19 @@ public class UserController {
 //    @DeleteCode
     public Mono<Void> delete(@PathVariable String id) {
         return controllerFacade.delete(id);
+    }
+
+    @GetMapping("/test")
+    public Mono<Address> test(@RequestParam String cep) {
+
+        String url = "https://viacep.com.br/ws/" + cep + "/json/";
+        WebClient webclient = WebClient.create(url);
+
+        Mono<Address> addressMono = webclient.get()
+                .retrieve()
+                .bodyToMono(Address.class);
+
+        System.out.println(addressMono);
+        return addressMono;
     }
 }
